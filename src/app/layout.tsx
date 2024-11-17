@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { ClerkProvider, useUser, SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ConvexReactClient } from "convex/react";
+import { Button } from "@/components/ui/button"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -44,7 +45,9 @@ function ConvexAuthWrapper({ children }: { children: React.ReactNode }) {
     <>
       <header>
         {!isSignedIn ? (
-          <SignInButton />
+			<Button>
+				<SignInButton />
+			</Button>
         ) : (
           <UserButton />
         )}
