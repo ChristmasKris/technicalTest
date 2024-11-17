@@ -34,3 +34,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Progress so far
+- created a nextJS project
+- installed and set up clerk
+- made sure clerk sign in/up works with my github account
+- downgraded react from version 19.x to 18.x for convex
+- installed convex
+- created teacher and student accounts in clerk
+- added their respective student and teacher roles to their metadata in clerk
+- installed ShadCN UI
+
+## Clerk demo/test accounts details
+E-mail: student@gmail.com
+Password: @!student123
+
+E-mail: teacher@gmail.com
+Password: @!teacher123
