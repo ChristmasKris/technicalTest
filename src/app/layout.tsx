@@ -5,6 +5,7 @@ import { ClerkProvider, useUser, SignInButton, SignedIn, SignedOut, UserButton }
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ConvexReactClient } from "convex/react";
 import { Button } from "@/components/ui/button"
+import { ConvexClientProvider } from "./ConvexClientProvider";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -29,14 +30,15 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ConvexAuthWrapper>{children}</ConvexAuthWrapper>
+          <ConvexClientProvider>
+			 	<ConvexAuthWrapper>{children}</ConvexAuthWrapper>
+			 </ConvexClientProvider>
         </body>
       </html>
     </ClerkProvider>
   );
 }
 
-// Helper component to handle useUser
 function ConvexAuthWrapper({ children }: { children: React.ReactNode }) {
  	const { isSignedIn, user } = useUser();
 	const userRole = user?.publicMetadata?.role;
@@ -45,9 +47,7 @@ function ConvexAuthWrapper({ children }: { children: React.ReactNode }) {
     <>
       <header>
         {!isSignedIn ? (
-			<Button>
-				<SignInButton />
-			</Button>
+			<SignInButton />
         ) : (
           <UserButton />
         )}
